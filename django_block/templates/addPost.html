@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Создать пост</title>
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: black;
+        }
+
+        .btn {
+            margin: auto;
+            font-size: 30px;
+            width: 210px;
+            padding: 8px;
+        }
+
+        .main_block {
+            border: 3px solid;
+            width: 850px;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 28px;
+        }
+
+        .author {
+            font-size: 25px;
+            padding: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 25px;
+            padding: 7px;
+            width: 300px;
+        }
+
+        .content {
+            font-size: 25px;
+            padding: 7px;
+            width: 600px;
+            height: 180px;
+        }
+
+        .btn1 {
+            font-size: 28px;
+            width: 200px;
+            padding: 5px;
+            margin: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="{% url 'home' %}"><button type="button" class="btn">Главное</button></a>
+        <a href="{% url 'register' %}"><button type="button" class="btn">Регистрация</button></a>
+        <a href="{% url 'login' %}"><button type="button" class="btn">Вход</button></a>
+    </div>
+    <h1>Создать пост</h1>
+    <div class="main_block">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for form in forms %}
+            <p>{{ form.label }}:</p>
+            {{ form }}
+            {% endfor %}<br>
+            <button type="submit" class="btn1">Создать</button>
+        </form>
+    </div>
+</body>
+
+</html>
